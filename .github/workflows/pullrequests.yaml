@@ -34,9 +34,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: managedkaos/merge-pull_request@v2.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
+      
+      - name: Merginator 2
+        uses: managedkaos/merge-pull-request@v2.0.2
           
 
