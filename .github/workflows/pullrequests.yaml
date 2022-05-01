@@ -1,0 +1,40 @@
+name: Auto Merge PR
+
+on: 
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+  
+    steps:
+
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: flake8 and pylint
+        run: |
+          pip install -r requirements.txt
+          flake8 --ignore=E501,E231 *.py tests/*.py
+          pylint --errors-only --disable=C0301 --disable=C0326 *.py tests/*.py
+
+      - name: unit test
+        run: python -m unitttest --verbose --failfast
+
+  merge:
+    if: github.actor == 'ravinduf' || github.actor == 'octocat'
+    needs: [lint]
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v3
+
+      - uses: hmarr/auto-approve-action@v.0.0
+        with:
+          github-token: $${{ sectets.GITHUB_TOKEN }}
+
+      - uses: managedkaos/merge-pull_request@v1.2
+        env:
+          GITHUB_TOKEN: ${{ sectets.GITHUB_TOKEN }}
+
