@@ -3,6 +3,7 @@ name: Auto Merge PR
 on: 
   pull_request:
     types: [opened, reopened]
+    
 
 jobs:
   lint:
@@ -23,18 +24,16 @@ jobs:
       #   run: python -m unitttest --verbose --failfast
 
   merge:
-    if: github.actor == "ravinduf"
+    if: ${{ github.actor == 'ravinduf' }}
     needs: [lint]
     runs-on: ubuntu-latest
+      
     steps:
 
       - uses: actions/checkout@v3
+        
+      - name: PR Automation
+        uses: devjoes/pr-automation@v0.1.0
 
-      - uses: hmarr/auto-approve-action@v1.0.0
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: managedkaos/merge-pull_request@v1.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
 
