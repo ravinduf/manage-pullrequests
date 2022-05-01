@@ -1,8 +1,8 @@
 name: Auto Merge PR
 
 on: 
-  pull_request_target:
-    types: [assigned, opened, synchronize, reopened]
+  pull_request:
+    types: [opened, reopened]
     
 
 jobs:
@@ -17,8 +17,8 @@ jobs:
       - name: flake8 and pylint
         run: |
           pip install -r requirements.txt
-          flake8 --ignore=E501,E231 test.py 
-          pylint --errors-only --disable=C0301 --disable=C0326 test.py 
+          flake8 --ignore=E501,E231 *.py 
+          pylint --errors-only --disable=C0301 --disable=C0326 *.py 
 
       # - name: unit test
       #   run: python -m unitttest --verbose --failfast
