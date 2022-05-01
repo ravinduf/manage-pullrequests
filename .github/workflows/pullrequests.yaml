@@ -34,12 +34,8 @@ jobs:
 
       - uses: actions/checkout@v3
         
-      - uses: hmarr/auto-approve-action@v2.2.1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: PR Automation
+        uses: devjoes/pr-automation@v0.1.0
 
-      
-      - name: Merginator 2
-        uses: managedkaos/merge-pull-request@v2.0.2
           
 
