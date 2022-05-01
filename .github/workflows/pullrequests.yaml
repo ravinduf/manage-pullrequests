@@ -27,8 +27,6 @@ jobs:
     if: ${{ github.actor == 'ravinduf' }}
     needs: [lint]
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: read|write|none
       
     steps:
 
