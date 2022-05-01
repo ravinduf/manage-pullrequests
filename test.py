@@ -3,8 +3,6 @@
 import string
 
 
-
-
 shift = 3
 choice = input("would you like to encode or decode?")
 word = input("Please enter text")
