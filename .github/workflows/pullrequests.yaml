@@ -29,9 +29,6 @@ jobs:
     steps:
 
       - uses: actions/checkout@v3
-      
-      - name: log token
-        run: echo $GITHUB_TOKEN
         
       - name: Auto approve/merge Dependabot (native) PR
         uses: Yproximite/auto-approve-and-merge-dependabot-action@v0.1.0
