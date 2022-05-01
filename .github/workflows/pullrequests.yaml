@@ -35,8 +35,7 @@ jobs:
         # uses: Yproximite/auto-approve-and-merge-dependabot-action@ce3d919aa61034cd0505f567044c466bba52b0a2
         uses: Yproximite/auto-approve-and-merge-dependabot-action@v0.1.0
         with:
-          # The GitHub token to use for auto-approving and auto-merging, can be ${{ secrets.GITHUB_TOKEN }}.
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          # Type of update for auto-merging, can be "major", "minor" or "patch".
+          github-token:  ${{ secrets.GITHUB_TOKEN }}
+    
           
 
