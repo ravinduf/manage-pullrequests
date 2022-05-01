@@ -23,7 +23,7 @@ jobs:
       #   run: python -m unitttest --verbose --failfast
 
   merge:
-    if: github.actor == 'ravinduf' || github.actor == 'octocat'
+    if: ${{ github.actor == 'ravinduf' }}
     needs: [lint]
     runs-on: ubuntu-latest
     steps:
