@@ -23,7 +23,7 @@ jobs:
       #   run: python -m unitttest --verbose --failfast
 
   merge:
-    if: github.actor == 'ravinduf' || github.actor == 'octocat'
+    if: github.actor == "ravinduf"
     needs: [lint]
     runs-on: ubuntu-latest
     steps:
@@ -32,7 +32,7 @@ jobs:
 
       - uses: hmarr/auto-approve-action@v1.0.0
         with:
-          github-token: $${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: managedkaos/merge-pull_request@v1.2
         env:
